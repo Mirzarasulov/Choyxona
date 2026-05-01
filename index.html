@@ -15,7 +15,6 @@
 
         body {
             min-height: 100vh;
-            /* 1. ВАШ ФОН: применяем изображение по ссылке */
             background: url('https://i.postimg.cc/xdqLxxfw/36af8800-0a58-4ae1-adfd-58ac11117ead.png') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Jost', sans-serif;
@@ -27,10 +26,9 @@
             overflow-x: hidden;
         }
 
-        /* Анимированные облака поверх красивого фона */
         .cloud {
             position: fixed;
-            background: rgba(255,255,255,0.75);
+            background: rgba(255,255,255,0.7);
             border-radius: 1000px;
             filter: blur(6px);
             pointer-events: none;
@@ -50,7 +48,7 @@
 
         .star {
             position: fixed;
-            color: rgba(255,255,220,0.7);
+            color: rgba(255,255,220,0.8);
             font-size: 1.3rem;
             pointer-events: none;
             animation: twinkle 3s infinite alternate;
@@ -61,19 +59,16 @@
             100% { opacity: 0.9; transform: scale(1.1); }
         }
 
-        /* Стеклянная карточка для контента */
         .container {
             position: relative;
             z-index: 10;
             max-width: 480px;
             width: 100%;
-            background: rgba(255, 252, 245, 0.88);
-            backdrop-filter: blur(14px);
+            background: transparent;
+            backdrop-filter: none;
             border-radius: 60px;
             padding: 2.5rem 1.8rem;
             text-align: center;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,245,0.6);
             animation: fadeInUp 0.7s ease-out;
         }
 
@@ -88,7 +83,6 @@
             }
         }
 
-        /* Круглое фото (можно заменить или оставить) */
         .hero-photo {
             width: 110px;
             height: 110px;
@@ -96,28 +90,31 @@
             object-fit: cover;
             margin: 0 auto 0.8rem;
             display: block;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border: 3px solid rgba(255,255,240,0.9);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            border: 3px solid rgba(255, 255, 255, 0.9);
         }
 
         .initials {
             font-family: 'Allura', 'Great Vibes', cursive;
-            font-size: 4rem;
-            background: linear-gradient(135deg, #7a4c3a, #b87a5a, #e2b88a);
+            font-size: 4.2rem;
+            background: linear-gradient(135deg, #ec0000, #000000, #ff8000);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 0.2rem;
             letter-spacing: 0.02em;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.1);
         }
 
         .subtitle {
-            font-size: 0.75rem;
-            letter-spacing: 0.3em;
+            font-size: 0.8rem;
+            letter-spacing: 0.35em;
             text-transform: uppercase;
-            color: #886b5e;
+            color: #000000;
             font-weight: 500;
             margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+            background: transparent;
         }
 
         .btn-group {
@@ -127,7 +124,6 @@
             margin: 1.5rem 0 0.8rem;
         }
 
-        /* ОБЩИЙ СТИЛЬ КНОПОК С АНИМАЦИЕЙ ПРИ НАВЕДЕНИИ */
         .btn {
             padding: 0.9rem 1.5rem;
             border-radius: 80px;
@@ -143,14 +139,13 @@
             gap: 12px;
             border: none;
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
         }
         
-        /* АНИМАЦИЯ ПРИ НАВЕДЕНИИ (курсором) И ПРИ КЛИКЕ */
         .btn:hover {
             transform: translateY(-4px) scale(1.02);
-            filter: brightness(1.02);
-            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
+            filter: brightness(1.05);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
         }
         
         .btn:active {
@@ -158,23 +153,23 @@
             transition: transform 0.12s;
         }
 
-        /* ЦВЕТА КНОПОК (обновлённые, под ваш фон) */
+        /* ===== НОВЫЕ ЦВЕТА КНОПОК ===== */
         .btn-osh {
-            background: linear-gradient(105deg, #e6b85e, #cf9738);
-            color: #2d2418;
-            border-bottom: 2px solid #b87a2e;
+            background: linear-gradient(105deg, #FFD166, #FFB347);
+            color: #3D2B1F;
+            border-bottom: 2px solid #E69500;
         }
         
         .btn-toy {
-            background: linear-gradient(105deg, #c4704c, #a44a2a);
-            color: #fff5ea;
-            border-bottom: 2px solid #7d3a20;
+            background: linear-gradient(105deg, #EF476F, #D90368);
+            color: #FFFFFF;
+            border-bottom: 2px solid #A1024A;
         }
         
         .btn-choyxona {
-            background: linear-gradient(105deg, #588c72, #386a51);
-            color: #fef7e8;
-            border-bottom: 2px solid #23513b;
+            background: linear-gradient(105deg, #06D6A0, #028090);
+            color: #FFFFFF;
+            border-bottom: 2px solid #005C66;
         }
 
         .btn-icon {
@@ -184,26 +179,27 @@
 
         .footer-text {
             font-size: 0.7rem;
-            color: #a77a66;
+            color: #ffe6d6;
             margin-top: 2rem;
-            border-top: 1px solid rgba(160, 120, 95, 0.3);
+            border-top: 1px solid rgba(255,240,220,0.35);
             padding-top: 1.1rem;
             font-weight: 450;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            background: transparent;
         }
 
         @media (max-width: 520px) {
             .container { padding: 1.6rem 1.2rem; margin: 0 12px; }
-            .initials { font-size: 3.2rem; }
+            .initials { font-size: 3.4rem; }
             .hero-photo { width: 90px; height: 90px; }
             .btn { font-size: 1rem; padding: 0.7rem 1rem; gap: 8px; }
             .btn-icon { font-size: 1.2rem; }
-            .subtitle { font-size: 0.65rem; }
+            .subtitle { font-size: 0.7rem; letter-spacing: 0.3em; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Декоративные облака и звёздочки -->
     <div class="cloud cloud-1"></div>
     <div class="cloud cloud-2"></div>
     <div class="cloud cloud-3"></div>
@@ -218,12 +214,11 @@
     <div class="star" style="top: 45%; left: 3%; animation-delay: 0.5s;">✨</div>
 
     <div class="container">
-        <!-- Фото можно заменить или убрать, если не нужно -->
+        <img class="hero-photo" src="https://i.postimg.cc/5NvzBMZm/k21k2.webp" alt="A and X" onerror="this.style.display='none'">
         <div class="initials">A & X</div>
         <div class="subtitle">TAKLIFNOMA</div>
         
         <div class="btn-group">
-            <!-- Кнопки ведут на соответствующие страницы -->
             <a href="osh.html" class="btn btn-osh">
                 <span class="btn-icon">🍚</span> Osh (Plov)
             </a>
