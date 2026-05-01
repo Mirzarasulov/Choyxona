@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Taklifnoma | A & X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&family=Parisienne&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 30% 40%, #c2e0f0 0%, #aad0e4 60%, #8bbfd8 100%);
+            font-family: 'Jost', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Анимированные облака */
+        .cloud {
+            position: fixed;
+            background: rgba(255,255,255,0.85);
+            border-radius: 1000px;
+            filter: blur(6px);
+            pointer-events: none;
+            z-index: 0;
+            animation: floatCloud 25s infinite alternate ease-in-out;
+        }
+        @keyframes floatCloud {
+            0% { transform: translateX(-8%) translateY(0%); }
+            100% { transform: translateX(8%) translateY(-4%); }
+        }
+        .cloud-1 { width: 280px; height: 110px; top: 5%; left: -8%; }
+        .cloud-2 { width: 380px; height: 140px; bottom: 8%; right: -10%; animation-duration: 35s; }
+        .cloud-3 { width: 220px; height: 90px; top: 22%; right: 5%; animation-duration: 20s; }
+        .cloud-4 { width: 320px; height: 120px; bottom: 20%; left: -5%; animation-duration: 40s; }
+        .cloud-5 { width: 180px; height: 70px; top: 65%; right: 15%; animation-duration: 28s; }
+        .cloud-6 { width: 250px; height: 100px; top: 40%; left: 10%; animation-duration: 32s; }
+
+        /* Плавные звёздочки */
+        .star {
+            position: fixed;
+            color: rgba(255,255,200,0.4);
+            font-size: 1.2rem;
+            pointer-events: none;
+            animation: twinkle 4s infinite alternate;
+        }
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(0.8); }
+            100% { opacity: 0.6; transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 450px;
+            width: 100%;
+            background: rgba(255,252,248,0.94);
+            backdrop-filter: blur(16px);
+            border-radius: 60px;
+            padding: 2.5rem 1.8rem;
+            text-align: center;
+            box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.4);
+            animation: fadeIn 0.8s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.96); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Круглое фото */
+        .hero-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1);
+            border: 3px solid white;
+        }
+
+        .initials {
+            font-family: 'Allura', 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            background: linear-gradient(135deg, #5e3a2e, #9b6b58, #c9a06c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.3rem;
+        }
+
+        .subtitle {
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #ae8774;
+            margin-bottom: 1.8rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 1.5rem 0;
+        }
+
+        .btn {
+            padding: 0.9rem 1.5rem;
+            border-radius: 80px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            border: none;
+        }
+
+        .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn-osh {
+            background: linear-gradient(135deg, #e8b85b, #d4942e);
+            color: white;
+            box-shadow: 0 8px 20px rgba(212, 148, 46, 0.3);
+        }
+
+        .btn-toy {
+            background: linear-gradient(135deg, #b56238, #8e3a1a);
+            color: white;
+            box-shadow: 0 8px 20px rgba(181, 98, 56, 0.3);
+        }
+
+        .btn-choyxona {
+            background: linear-gradient(135deg, #4a8c6f, #2d5a45);
+            color: white;
+            box-shadow: 0 8px 20px rgba(45, 90, 69, 0.3);
+        }
+
+        .btn-icon {
+            font-size: 1.3rem;
+        }
+
+        .footer-text {
+            font-size: 0.7rem;
+            color: #a77a66;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(200,165,135,0.3);
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 500px) {
+            .container { padding: 1.8rem 1.2rem; }
+            .initials { font-size: 3rem; }
+            .hero-photo { width: 100px; height: 100px; }
+            .btn { font-size: 1rem; padding: 0.8rem 1.2rem; }
+            .btn-icon { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Облака -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+    <div class="cloud cloud-4"></div>
+    <div class="cloud cloud-5"></div>
+    <div class="cloud cloud-6"></div>
+
+    <!-- Звёздочки -->
+    <div class="star" style="top: 10%; left: 5%;">✨</div>
+    <div class="star" style="top: 20%; right: 8%; animation-delay: 1s;">✨</div>
+    <div class="star" style="bottom: 15%; left: 10%; animation-delay: 0.5s;">✨</div>
+    <div class="star" style="bottom: 25%; right: 12%; animation-delay: 1.5s;">✨</div>
+
+    <div class="container">
+        <img class="hero-photo" src="https://i.postimg.cc/5NvzBMZm/k21k2.webp" alt="A and X" onerror="this.style.display='none'">
+        <div class="initials">A & X</div>
+        <div class="subtitle">TAKLIFNOMA</div>
+        
+        <div class="btn-group">
+            <a href="osh.html" class="btn btn-osh">
+                <span class="btn-icon">🍚</span> Osh (Plov)
+            </a>
+            <a href="toy.html" class="btn btn-toy">
+                <span class="btn-icon">💍</span> To'y (Wedding)
+            </a>
+            <a href="choyxona.html" class="btn btn-choyxona">
+                <span class="btn-icon">🍵</span> Choyxona
+            </a>
+        </div>
+        
+        <div class="footer-text">
+            ✨ Marhamat, tanlang va taklifnomamizni oching ✨
+        </div>
+    </div>
+</body>
+</html>
