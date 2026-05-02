@@ -15,7 +15,6 @@
 
         body {
             min-height: 100vh;
-            /* Ваш фон */
             background: url('https://i.postimg.cc/XqhdfVWD/abstract-uv-ultraviolet-light-composition-23-2149243965.avif') no-repeat center center fixed;
             background-size: cover;
             font-family: 'Jost', sans-serif;
@@ -27,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* Декоративные светящиеся элементы в стиле UV-абстракции */
+        /* Декоративные светящиеся элементы */
         .glow-spot {
             position: fixed;
             border-radius: 50%;
@@ -43,6 +42,31 @@
         .spot-1 { width: 400px; height: 400px; top: -100px; left: -100px; }
         .spot-2 { width: 500px; height: 500px; bottom: -150px; right: -150px; animation-duration: 5s; }
         .spot-3 { width: 300px; height: 300px; top: 40%; right: 5%; animation-duration: 3.5s; background: radial-gradient(circle, rgba(0, 200, 255, 0.25) 0%, rgba(0,0,0,0) 80%); }
+
+        /* Кнопка НАЗАД */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 8px 18px;
+            color: #FFD9A5;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s ease;
+            border: 0.5px solid rgba(255,215,0,0.4);
+            z-index: 20;
+        }
+        .back-button:hover {
+            background: rgba(255, 215, 0, 0.25);
+            transform: translateX(-3px);
+        }
 
         /* Стеклянная карточка */
         .container {
@@ -71,7 +95,6 @@
             }
         }
 
-        /* Инициалы (можно адаптировать) */
         .initials {
             font-family: 'Allura', 'Great Vibes', cursive;
             font-size: 3.8rem;
@@ -93,7 +116,6 @@
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
-        /* Основной блок с сообщением */
         .message-card {
             background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(8px);
@@ -124,7 +146,6 @@
             backdrop-filter: blur(4px);
         }
 
-        /* Кнопка вызова */
         .call-button {
             display: inline-flex;
             align-items: center;
@@ -172,31 +193,29 @@
             .main-message { font-size: 1.3rem; }
             .call-button { font-size: 1.2rem; padding: 0.8rem 1.2rem; gap: 10px; }
             .info-text { font-size: 0.9rem; }
+            .back-button { top: 12px; left: 12px; padding: 5px 12px; font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Декоративные светящиеся пятна под фон -->
     <div class="glow-spot spot-1"></div>
     <div class="glow-spot spot-2"></div>
     <div class="glow-spot spot-3"></div>
 
-<div class="container">
-    <a href="index.html" class="back-button">← Назад</a>
-
-
-    <!-- Основной блок -->
     <div class="container">
+        <!-- Кнопка НАЗАД внутри контейнера -->
+        <a href="index.html" class="back-button">← Назад</a>
+
         <div class="initials">A & X</div>
-        <div class="title"> CHOYXONA </div>
+        <div class="title">🍵 CHOYXONA 🍵</div>
 
         <div class="message-card">
             <div class="main-message">
                 Тез кунда локация болади
             </div>
             <div class="info-text">
-                 Чойхонага идеяла боми ?  
+                ✨ Чойхонага идеяла боми? ✨
             </div>
         </div>
 
@@ -205,7 +224,9 @@
         </a>
 
         <div class="footer-note">
+            🌿 Sizning takliflaringizni kutamiz 🌿
         </div>
     </div>
+
 </body>
 </html>
