@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Choyxona | A & X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            /* Ваш фон */
+            background: url('https://i.postimg.cc/XqhdfVWD/abstract-uv-ultraviolet-light-composition-23-2149243965.avif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Jost', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Декоративные светящиеся элементы в стиле UV-абстракции */
+        .glow-spot {
+            position: fixed;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 100, 200, 0.3) 0%, rgba(100, 50, 255, 0) 80%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseGlow 4s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 0.8; transform: scale(1.2); }
+        }
+        .spot-1 { width: 400px; height: 400px; top: -100px; left: -100px; }
+        .spot-2 { width: 500px; height: 500px; bottom: -150px; right: -150px; animation-duration: 5s; }
+        .spot-3 { width: 300px; height: 300px; top: 40%; right: 5%; animation-duration: 3.5s; background: radial-gradient(circle, rgba(0, 200, 255, 0.25) 0%, rgba(0,0,0,0) 80%); }
+
+        /* Стеклянная карточка */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 500px;
+            width: 100%;
+            background: rgba(15, 15, 25, 0.55);
+            backdrop-filter: blur(14px);
+            border-radius: 60px;
+            padding: 2.8rem 1.8rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Инициалы (можно адаптировать) */
+        .initials {
+            font-family: 'Allura', 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            background: linear-gradient(135deg, #ffb7c5, #ff6a88, #a855f7);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.02em;
+            text-shadow: 0 0 15px rgba(255,100,200,0.5);
+        }
+
+        .title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #fff0e0;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        /* Основной блок с сообщением */
+        .message-card {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 1.8rem 1rem;
+            margin: 1.5rem 0;
+            border: 1px solid rgba(255,255,200,0.2);
+        }
+
+        .main-message {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FFE5B4;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 8px rgba(0,0,0,0.5);
+        }
+
+        .info-text {
+            font-size: 1.1rem;
+            color: #FFD9A5;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            background: rgba(0,0,0,0.4);
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Кнопка вызова */
+        .call-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background: linear-gradient(105deg, #00c6a7, #008b74);
+            color: white;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            border-radius: 80px;
+            margin: 1rem 0 0.5rem;
+            transition: 0.25s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 320px;
+            letter-spacing: 1px;
+        }
+
+        .call-button:hover {
+            transform: translateY(-4px) scale(1.02);
+            background: linear-gradient(105deg, #00dfbb, #00997e);
+            box-shadow: 0 18px 32px rgba(0,0,0,0.35);
+        }
+
+        .call-button:active {
+            transform: scale(0.96);
+        }
+
+        .footer-note {
+            font-size: 0.75rem;
+            color: #ccb9a6;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,240,210,0.25);
+            padding-top: 1rem;
+        }
+
+        @media (max-width: 560px) {
+            .container { padding: 1.8rem 1.2rem; margin: 0 12px; }
+            .initials { font-size: 3rem; }
+            .title { font-size: 1.3rem; }
+            .main-message { font-size: 1.3rem; }
+            .call-button { font-size: 1.2rem; padding: 0.8rem 1.2rem; gap: 10px; }
+            .info-text { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Декоративные светящиеся пятна под фон -->
+    <div class="glow-spot spot-1"></div>
+    <div class="glow-spot spot-2"></div>
+    <div class="glow-spot spot-3"></div>
+
+    <!-- Основной блок -->
+    <div class="container">
+        <div class="initials">A & X</div>
+        <div class="title">🍵 CHOYXONA 🍵</div>
+
+        <div class="message-card">
+            <div class="main-message">
+                Тез кунда локация болади
+            </div>
+            <div class="info-text">
+                ✨ Чойхонага идея бўлса, тел қилинг ✨
+            </div>
+        </div>
+
+        <a href="tel:+998909005525" class="call-button">
+            📞 +998 90 900 55 25
+        </a>
+
+        <div class="footer-note">
+            🌿 Sizning takliflaringizni kutamiz 🌿
+        </div>
+    </div>
+</body>
+</html>
