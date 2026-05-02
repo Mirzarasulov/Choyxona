@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Navkar | A & X</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: url('https://i.postimg.cc/mgZ1Pz74/elegant-black-background-with-vintage-distressed-grunge-texture-dark-gray-charcoal-color-851674-6818.avif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Jost', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Декоративные элементы — лёгкие золотые акценты */
+        .gold-dust {
+            position: fixed;
+            background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,215,0,0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            animation: sparkle 6s infinite alternate;
+        }
+        @keyframes sparkle {
+            0% { opacity: 0.2; transform: scale(0.9); }
+            100% { opacity: 0.5; transform: scale(1.2); }
+        }
+        .dust-1 { width: 400px; height: 400px; top: -120px; left: -120px; }
+        .dust-2 { width: 550px; height: 550px; bottom: -150px; right: -150px; animation-duration: 8s; }
+        .dust-3 { width: 280px; height: 280px; top: 35%; right: 0%; animation-duration: 5s; background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(0,0,0,0) 80%); }
+
+        /* Основная карточка */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 550px;
+            width: 100%;
+            background: rgba(10, 8, 12, 0.7);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.7s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Кнопка "Назад" */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 6px 14px;
+            color: #FFD966;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s ease;
+            border: 0.5px solid rgba(255,215,0,0.4);
+        }
+        .back-button:hover {
+            background: rgba(255, 215, 0, 0.25);
+            transform: translateX(-3px);
+        }
+
+        .initials {
+            font-family: 'Allura', 'Great Vibes', cursive;
+            font-size: 3.8rem;
+            background: linear-gradient(135deg, #FFD966, #C9A03D, #BA8748);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.2rem;
+            letter-spacing: 0.03em;
+        }
+
+        .title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #F4E2B7;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+
+        /* Карточки локаций */
+        .location-card {
+            background: rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            padding: 1.4rem 1rem;
+            margin-bottom: 1.8rem;
+            border: 1px solid rgba(255, 200, 100, 0.3);
+            text-align: center;
+        }
+
+        .location-name {
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: #FFE2A4;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .map-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(4px);
+            padding: 0.7rem 1.3rem;
+            border-radius: 50px;
+            color: #F1DCA8;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            border: 0.5px solid rgba(255,200,120,0.4);
+            transition: 0.2s;
+        }
+
+        .map-btn:hover {
+            background: rgba(255, 210, 90, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .yandex-btn {
+            background: rgba(220, 50, 50, 0.2);
+            border-color: #ff5a5a;
+        }
+        .google-btn {
+            background: rgba(66, 133, 244, 0.2);
+            border-color: #4285f4;
+        }
+
+        .note-text {
+            font-size: 0.75rem;
+            color: #C9AD7A;
+            margin-top: 1rem;
+            padding-top: 0.5rem;
+            border-top: 1px dashed rgba(255,200,120,0.3);
+        }
+
+        .footer-note {
+            font-size: 0.7rem;
+            color: #b9a57c;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 540px) {
+            .container { padding: 1.5rem 1rem; margin: 0 12px; }
+            .initials { font-size: 3rem; }
+            .title { font-size: 1.3rem; }
+            .location-name { font-size: 1.4rem; }
+            .map-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+            .btn-group { gap: 10px; }
+            .location-card { padding: 1rem 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="gold-dust dust-1"></div>
+    <div class="gold-dust dust-2"></div>
+    <div class="gold-dust dust-3"></div>
+
+    <div class="container">
+        <a href="index.html" class="back-button">← Назад</a>
+
+        <div class="initials">A & X</div>
+        <div class="title">💍 Navkar 💍</div>
+
+        <!-- Локация 1: Куёвнинг уйи (Жених) -->
+        <div class="location-card">
+            <div class="location-name">
+                🏠 Куёвнинг уйи
+            </div>
+            <div class="btn-group">
+                <a href="https://yandex.uz/maps/-/CLF7FUz7" class="map-btn yandex-btn" target="_blank">🗺️ Yandex Maps</a>
+                <a href="https://maps.app.goo.gl/gEhWSadfBxjVcUVZ8" class="map-btn google-btn" target="_blank">🌍 Google Maps</a>
+            </div>
+        </div>
+
+        <!-- Локация 2: Келин уйи (Невеста) — ссылки вставьте позже сами -->
+        <div class="location-card">
+            <div class="location-name">
+                💐 Келиннинг уйи
+            </div>
+            <div class="btn-group">
+                <a href="#" class="map-btn yandex-btn" target="_blank">🗺️ Yandex Maps (кейин киритилади)</a>
+                <a href="#" class="map-btn google-btn" target="_blank">🌍 Google Maps (кейин киритилади)</a>
+            </div>
+            <div class="note-text">
+                ℹ️ Сиз таклиф этган манзилни кутиб қоламиз. Кейинроқ фаоллаштирилади.
+            </div>
+        </div>
+
+        <div class="footer-note">
+            ✨ Қутловлар ва дуолар энг яхши совғадир ✨
+        </div>
+    </div>
+
+    <!-- Небольшой скрипт, который при клике на пустые ссылки показывает подсказку (опционально) -->
+    <script>
+        const emptyLinks = document.querySelectorAll('.location-card:last-child .map-btn');
+        emptyLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (link.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert('📍 Манзил ҳозирча киритилмаган. Ўзингиз таклиф қилинган манзилни қўшишингиз мумкин.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
