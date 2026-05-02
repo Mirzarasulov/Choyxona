@@ -105,20 +105,9 @@
             font-size: 1.6rem;
             font-weight: 600;
             color: #F4E2B7;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             letter-spacing: 2px;
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-
-        .time-note {
-            font-size: 1.1rem;
-            color: #FFD966;
-            margin-bottom: 1.5rem;
-            padding: 0.3rem 1rem;
-            display: inline-block;
-            background: rgba(0,0,0,0.4);
-            border-radius: 60px;
-            backdrop-filter: blur(4px);
         }
 
         .location-card {
@@ -140,6 +129,16 @@
             align-items: center;
             justify-content: center;
             gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .time-badge {
+            font-size: 1rem;
+            color: #FFD966;
+            background: rgba(0,0,0,0.5);
+            padding: 0.3rem 1rem;
+            border-radius: 60px;
+            font-weight: 500;
         }
 
         .btn-group {
@@ -205,7 +204,7 @@
             .btn-group { gap: 10px; }
             .location-card { padding: 1rem 0.8rem; }
             .back-button { top: 15px; left: 15px; width: 40px; height: 40px; font-size: 1.2rem; }
-            .time-note { font-size: 0.9rem; }
+            .time-badge { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -220,7 +219,6 @@
     <div class="container">
         <div class="initials">A & X</div>
         <div class="title">💍 Navkar 💍</div>
-        <div class="time-note">⏰ 12:00 (kechikilmasin) ⏰</div>
 
         <div class="location-card">
             <div class="location-name">
@@ -235,6 +233,7 @@
         <div class="location-card">
             <div class="location-name">
                 💐 Келиннинг уйи
+                <span class="time-badge">⏰ 12:00 (bo'lish so'raladi)</span>
             </div>
             <div class="btn-group">
                 <a href="#" class="map-btn yandex-btn" target="_blank">🗺️ Yandex Maps</a>
@@ -246,6 +245,7 @@
         </div>
 
         <div class="footer-note">
+            ✨ Тойингиз муборак бўлсин! Қутловлар ва дуолар энг яхши совғадир ✨
         </div>
     </div>
 
