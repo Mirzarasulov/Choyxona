@@ -1,14 +1,10 @@
-Вот обновлённый HTML-документ с изменённым заголовком и новым шрифтом, как вы просили.
-```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
     <title>A and X | To'y taklifnomasi</title>
-    <!-- Основной шрифт для заголовков и акцентов: Shelley Volante / AnastasiaScript - элегантный курсив -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Подключаем Anastasia Script (Google Fonts аналог с похожим изящным курсивом) и дополнительно Great Vibes для сохранения стиля -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Allura&family=Alex+Brush&display=swap" rel="stylesheet">
     <style>
         * {
@@ -20,7 +16,6 @@
 
         body {
             background: #b8d4e2;
-            /* Используем Jost только для вспомогательного текста, основной акцент на AnastasiaScript/Allura */
             font-family: 'Jost', sans-serif;
             font-weight: 300;
             letter-spacing: 0.02em;
@@ -28,13 +23,11 @@
             overflow-x: hidden;
         }
 
-        /* Главный декоративный шрифт для имён, инициалов, надписей "A and X", заголовков */
         .cursive-font, .initials-large, .invite-card .section-title, .welcome-text p:first-child, .arabic-prayer, .star-decoration {
             font-family: 'Allura', 'Alex Brush', 'Great Vibes', 'Parisienne', cursive;
             font-weight: 400;
         }
         
-        /* Более приземлённый, но тоже элегантный */
         .invitation-text p, .timer-label, .location-btn, .rsvp-action, .open-btn, .close-invitation, .map-btn {
             font-family: 'Jost', sans-serif;
         }
@@ -103,7 +96,7 @@
             z-index: 1;
             will-change: transform;
             opacity: 0.9 !important;
-            animation: floatRight 40s infinite linear;
+            animation: floatRight 40s linear infinite;
         }
         .cloud-layer.cloud-slow { animation-duration: 55s; }
         .cloud-layer.cloud-medium { animation-duration: 45s; }
@@ -291,6 +284,27 @@
             color: #8b6b58;
         }
         .close-invitation:active { transform: scale(0.95); }
+        
+        .back-button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,252,248,0.96);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 210;
+            border: 0.5px solid rgba(200,165,135,0.4);
+            color: #8b6b58;
+            text-decoration: none;
+        }
+        .back-button:active { transform: scale(0.95); }
         
         .star-decoration {
             text-align: center;
@@ -546,7 +560,6 @@
     <div class="moon-glow"></div>
     <div class="particles"></div>
     
-    <!-- 15 animated clouds -->
     <div class="cloud-layer cloud-1 cloud-slow"><svg viewBox="0 0 750 450"><path d="M140,220 Q95,150 170,125 Q215,68 305,92 Q380,50 480,90 Q565,55 625,125 Q695,110 715,190 Q760,235 690,295 Q745,365 665,400 Q580,445 475,410 Q395,455 305,418 Q225,455 160,408 Q95,430 55,365 Q15,325 45,265 Q18,215 140,220Z" fill="#ffffff" opacity="0.95"/></svg></div>
     <div class="cloud-layer cloud-2 cloud-fast"><svg viewBox="0 0 850 500"><path d="M185,285 Q125,195 225,168 Q275,98 385,125 Q475,72 590,115 Q685,75 755,150 Q845,130 865,225 Q930,275 855,345 Q920,425 825,465 Q730,520 610,480 Q520,535 420,495 Q325,540 240,488 Q160,525 110,445 Q55,405 90,330 Q50,265 185,285Z" fill="#ffffff" opacity="0.95"/></svg></div>
     <div class="cloud-layer cloud-3 cloud-medium"><svg viewBox="0 0 600 360"><path d="M115,185 Q75,125 155,105 Q195,55 285,78 Q355,42 435,82 Q505,55 545,115 Q610,100 625,170 Q665,210 615,260 Q650,320 595,350 Q535,390 465,368 Q395,405 330,378 Q265,405 215,365 Q160,385 125,330 Q88,305 110,248 Q80,210 115,185Z" fill="#ffffff" opacity="0.95"/></svg></div>
@@ -664,6 +677,8 @@ Manzil: Shayxontoxur tumani
             </div>
         </div>
     </div>
+
+    <a href="index.html" class="back-button">←</a>
 
     <div class="youtube-player"><iframe id="youtubeAudio" width="1" height="1" src="" allow="autoplay; encrypted-media" style="border:0"></iframe></div>
     <div class="music-controller" id="musicController"><button class="music-btn" id="musicToggleBtn">🔇</button></div>
@@ -814,4 +829,3 @@ Manzil: Shayxontoxur tumani
 </script>
 </body>
 </html>
-```
