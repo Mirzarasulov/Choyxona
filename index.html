@@ -1,3 +1,6 @@
+Вот обновлённый `index.html` с **прозрачными (стеклянными) кнопками**. Я сделал их в универсальном стиле с лёгким свечением, убрав яркие цветные градиенты, чтобы они выглядели элегантно и не перегружали фон.
+
+```html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -124,6 +127,7 @@
             margin: 1.5rem 0 0.8rem;
         }
 
+        /* ===== СТЕКЛЯННЫЕ (ПРОЗРАЧНЫЕ) КНОПКИ ===== */
         .btn {
             padding: 0.9rem 1.5rem;
             border-radius: 80px;
@@ -131,21 +135,25 @@
             font-weight: 600;
             text-decoration: none;
             text-align: center;
-            transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
-            border: none;
+            border: 1px solid rgba(255, 255, 255, 0.35);
             letter-spacing: 0.5px;
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff5e6;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
         }
         
         .btn:hover {
             transform: translateY(-4px) scale(1.02);
-            filter: brightness(1.05);
-            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 16px 28px rgba(0, 0, 0, 0.2);
         }
         
         .btn:active {
@@ -153,28 +161,16 @@
             transition: transform 0.12s;
         }
 
-        /* ===== НОВЫЕ ЦВЕТА КНОПОК ===== */
-        .btn-osh {
-            background: linear-gradient(105deg, #FFD166, #FFB347);
-            color: #3D2B1F;
-            border-bottom: 2px solid #E69500;
-        }
-        
-        .btn-toy {
-            background: linear-gradient(105deg, #EF476F, #D90368);
-            color: #FFFFFF;
-            border-bottom: 2px solid #A1024A;
-        }
-        
-        .btn-choyxona {
-            background: linear-gradient(105deg, #06D6A0, #028090);
-            color: #FFFFFF;
-            border-bottom: 2px solid #005C66;
+        /* Убираем разноцветные градиенты, оставляем универсальный прозрачный стиль */
+        .btn-osh, .btn-toy, .btn-choyxona {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff5e6;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .btn-icon {
             font-size: 1.4rem;
-            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
         }
 
         .footer-text {
@@ -236,3 +232,4 @@
     </div>
 </body>
 </html>
+```
