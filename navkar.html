@@ -26,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* Декоративные элементы — лёгкие золотые акценты */
         .gold-dust {
             position: fixed;
             background: radial-gradient(circle, rgba(255,215,0,0.3) 0%, rgba(255,215,0,0) 70%);
@@ -43,7 +42,6 @@
         .dust-2 { width: 550px; height: 550px; bottom: -150px; right: -150px; animation-duration: 8s; }
         .dust-3 { width: 280px; height: 280px; top: 35%; right: 0%; animation-duration: 5s; background: radial-gradient(circle, rgba(255,215,0,0.2) 0%, rgba(0,0,0,0) 80%); }
 
-        /* Основная карточка */
         .container {
             position: relative;
             z-index: 10;
@@ -64,28 +62,32 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Кнопка "Назад" */
         .back-button {
-            position: absolute;
+            position: fixed;
             top: 20px;
             left: 20px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
             background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
-            border-radius: 40px;
-            padding: 6px 14px;
-            color: #FFD966;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-decoration: none;
+            backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            color: #FFD966;
+            font-size: 1.4rem;
+            font-weight: 500;
+            text-decoration: none;
             transition: 0.2s ease;
             border: 0.5px solid rgba(255,215,0,0.4);
+            z-index: 20;
         }
         .back-button:hover {
             background: rgba(255, 215, 0, 0.25);
-            transform: translateX(-3px);
+            transform: scale(1.05);
+        }
+        .back-button:active {
+            transform: scale(0.95);
         }
 
         .initials {
@@ -108,7 +110,6 @@
             text-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
 
-        /* Карточки локаций */
         .location-card {
             background: rgba(0, 0, 0, 0.55);
             backdrop-filter: blur(8px);
@@ -190,6 +191,7 @@
             .map-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
             .btn-group { gap: 10px; }
             .location-card { padding: 1rem 0.8rem; }
+            .back-button { top: 15px; left: 15px; width: 40px; height: 40px; font-size: 1.2rem; }
         }
     </style>
 </head>
@@ -199,14 +201,12 @@
     <div class="gold-dust dust-2"></div>
     <div class="gold-dust dust-3"></div>
 
+    <a href="index.html" class="back-button">←</a>
+
     <div class="container">
-        <a href="index.html" class="back-button">← Назад</a>
-
         <div class="initials">A & X</div>
-        <div class="title"> Navkar </div>
-        <div class="title"> Navkar </div>
+        <div class="title">💍 Navkar 💍</div>
 
-        <!-- Локация 1: Куёвнинг уйи (Жених) -->
         <div class="location-card">
             <div class="location-name">
                 🏠 Куёвнинг уйи
@@ -217,7 +217,6 @@
             </div>
         </div>
 
-        <!-- Локация 2: Келин уйи (Невеста) — ссылки вставьте позже сами -->
         <div class="location-card">
             <div class="location-name">
                 💐 Келиннинг уйи
@@ -232,10 +231,10 @@
         </div>
 
         <div class="footer-note">
+            ✨ Қутловлар ва дуолар энг яхши совғадир ✨
         </div>
     </div>
 
-    <!-- Небольшой скрипт, который при клике на пустые ссылки показывает подсказку (опционально) -->
     <script>
         const emptyLinks = document.querySelectorAll('.location-card:last-child .map-btn');
         emptyLinks.forEach(link => {
