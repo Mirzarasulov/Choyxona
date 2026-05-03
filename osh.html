@@ -676,7 +676,6 @@ Manzil: Shayxontoxur tumani
                 <div class="star-decoration">✨ 🕌 ✨</div>
             </div>
 
-            <!-- КНОПКА ПОДТВЕРЖДЕНИЯ ПРИСУТСТВИЯ (RSVP) -->
             <button class="rsvp-action" id="rsvpConfirmBtn">✨ Qatnashaman ✨</button>
         </div>
     </div>
@@ -753,11 +752,9 @@ Manzil: Shayxontoxur tumani
         } 
     }
     
-    // ПРЯМЫЕ ССЫЛКИ НА КАРТЫ (работают без выбора)
     const googleMapsUrl = "https://maps.app.goo.gl/9udVitwn1xCrwqiJ6";
     const yandexMapsUrl = "https://yandex.uz/maps/-/CPSGI42P";
     
-    // ФУНКЦИЯ ОТКРЫТИЯ КАРТЫ С ВЫБОРОМ
     function showMapChoice() {
         const overlay = document.createElement('div');
         overlay.className = 'map-choice-overlay';
@@ -825,16 +822,16 @@ Manzil: Shayxontoxur tumani
     closeInvBtn.addEventListener('click', () => fullInvitation.classList.remove('open'));
     musicToggleBtn.addEventListener('click', toggleMute);
     
-    // КНОПКА ОТКРЫТИЯ КАРТЫ
     const locationBtn = document.getElementById('locationBtn');
     if (locationBtn) {
-        locationBtn.addEventListener('click', () => showMapChoice());
+        locationBtn.addEventListener('click', function() {
+            showMapChoice();
+        });
     }
     
-    // КНОПКА ПОДТВЕРЖДЕНИЯ ПРИСУТСТВИЯ
     const rsvpBtn = document.getElementById('rsvpConfirmBtn');
     if (rsvpBtn) {
-        rsvpBtn.addEventListener('click', () => { 
+        rsvpBtn.addEventListener('click', function() { 
             const toast = document.createElement('div'); 
             toast.innerText = '✨ Rahmat, javobingiz qabul qilindi! ✨'; 
             toast.style.cssText = 'position:fixed; bottom:90px; left:20px; right:20px; background:rgba(255,245,235,0.96); backdrop-filter:blur(16px); border-radius:50px; padding:0.8rem; text-align:center; font-size:0.8rem; color:#5d3e36; z-index:300; opacity:0; transition:opacity 0.2s;'; 
@@ -845,13 +842,15 @@ Manzil: Shayxontoxur tumani
     }
     
     const inviteScroll = document.getElementById('fullInvitation');
-    inviteScroll.addEventListener('scroll', () => { 
-        const y = inviteScroll.scrollTop; 
-        document.querySelectorAll('.cloud-layer').forEach((cloud, i) => { 
-            const speed = 0.003 + (i * 0.0002); 
-            cloud.style.transform = `translateY(${y * speed}px)`; 
-        }); 
-    });
+    if (inviteScroll) {
+        inviteScroll.addEventListener('scroll', () => { 
+            const y = inviteScroll.scrollTop; 
+            document.querySelectorAll('.cloud-layer').forEach((cloud, i) => { 
+                const speed = 0.003 + (i * 0.0002); 
+                cloud.style.transform = `translateY(${y * speed}px)`; 
+            }); 
+        });
+    }
 </script>
 </body>
 </html>
