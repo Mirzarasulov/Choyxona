@@ -675,6 +675,9 @@ Manzil: Shayxontoxur tumani
                 </div>
                 <div class="star-decoration">✨ 🕌 ✨</div>
             </div>
+
+            <!-- КНОПКА ПОДТВЕРЖДЕНИЯ ПРИСУТСТВИЯ (RSVP) -->
+            <button class="rsvp-action" id="rsvpConfirmBtn">✨ Qatnashaman ✨</button>
         </div>
     </div>
 
@@ -750,9 +753,11 @@ Manzil: Shayxontoxur tumani
         } 
     }
     
+    // ПРЯМЫЕ ССЫЛКИ НА КАРТЫ (работают без выбора)
     const googleMapsUrl = "https://maps.app.goo.gl/9udVitwn1xCrwqiJ6";
     const yandexMapsUrl = "https://yandex.uz/maps/-/CPSGI42P";
     
+    // ФУНКЦИЯ ОТКРЫТИЯ КАРТЫ С ВЫБОРОМ
     function showMapChoice() {
         const overlay = document.createElement('div');
         overlay.className = 'map-choice-overlay';
@@ -766,10 +771,21 @@ Manzil: Shayxontoxur tumani
         `;
         document.body.appendChild(overlay);
         setTimeout(() => { overlay.style.opacity = '1'; }, 10);
-        document.getElementById('chooseGoogle').onclick = () => { window.open(googleMapsUrl, '_blank'); closeOverlay(); };
-        document.getElementById('chooseYandex').onclick = () => { window.open(yandexMapsUrl, '_blank'); closeOverlay(); };
+        
+        document.getElementById('chooseGoogle').onclick = () => { 
+            window.open(googleMapsUrl, '_blank'); 
+            closeOverlay(); 
+        };
+        document.getElementById('chooseYandex').onclick = () => { 
+            window.open(yandexMapsUrl, '_blank'); 
+            closeOverlay(); 
+        };
         document.getElementById('cancelMap').onclick = () => closeOverlay();
-        function closeOverlay() { overlay.style.opacity = '0'; setTimeout(() => overlay.remove(), 300); }
+        
+        function closeOverlay() { 
+            overlay.style.opacity = '0'; 
+            setTimeout(() => overlay.remove(), 300); 
+        }
     }
     
     const openingOverlay = document.getElementById('openingOverlay');
@@ -808,15 +824,25 @@ Manzil: Shayxontoxur tumani
     
     closeInvBtn.addEventListener('click', () => fullInvitation.classList.remove('open'));
     musicToggleBtn.addEventListener('click', toggleMute);
-    document.getElementById('locationBtn')?.addEventListener('click', () => showMapChoice());
-    document.getElementById('rsvpConfirmBtn').addEventListener('click', () => { 
-        const toast = document.createElement('div'); 
-        toast.innerText = '✨ Rahmat, javobingiz qabul qilindi! ✨'; 
-        toast.style.cssText = 'position:fixed; bottom:90px; left:20px; right:20px; background:rgba(255,245,235,0.96); backdrop-filter:blur(16px); border-radius:50px; padding:0.8rem; text-align:center; font-size:0.8rem; color:#5d3e36; z-index:300; opacity:0; transition:opacity 0.2s;'; 
-        document.body.appendChild(toast); 
-        setTimeout(() => toast.style.opacity = '1', 10); 
-        setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 2500); 
-    });
+    
+    // КНОПКА ОТКРЫТИЯ КАРТЫ
+    const locationBtn = document.getElementById('locationBtn');
+    if (locationBtn) {
+        locationBtn.addEventListener('click', () => showMapChoice());
+    }
+    
+    // КНОПКА ПОДТВЕРЖДЕНИЯ ПРИСУТСТВИЯ
+    const rsvpBtn = document.getElementById('rsvpConfirmBtn');
+    if (rsvpBtn) {
+        rsvpBtn.addEventListener('click', () => { 
+            const toast = document.createElement('div'); 
+            toast.innerText = '✨ Rahmat, javobingiz qabul qilindi! ✨'; 
+            toast.style.cssText = 'position:fixed; bottom:90px; left:20px; right:20px; background:rgba(255,245,235,0.96); backdrop-filter:blur(16px); border-radius:50px; padding:0.8rem; text-align:center; font-size:0.8rem; color:#5d3e36; z-index:300; opacity:0; transition:opacity 0.2s;'; 
+            document.body.appendChild(toast); 
+            setTimeout(() => toast.style.opacity = '1', 10); 
+            setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 2500); 
+        });
+    }
     
     const inviteScroll = document.getElementById('fullInvitation');
     inviteScroll.addEventListener('scroll', () => { 
