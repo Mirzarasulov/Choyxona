@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Choyxona | Sultan Garden</title>
+    <title>Choyxona | A & X</title>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Allura&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
@@ -24,6 +24,35 @@
             padding: 20px;
             position: relative;
             overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* Секретное уведомление (всплывает при активации) */
+        .secret-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.9);
+            background: linear-gradient(135deg, #1e1e2f, #2a2a3a);
+            backdrop-filter: blur(20px);
+            color: #ffd966;
+            padding: 12px 24px;
+            border-radius: 60px;
+            font-family: 'Jost', monospace;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: 1px solid rgba(255, 215, 0, 0.6);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .secret-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) scale(1);
         }
 
         /* Декоративные светящиеся элементы */
@@ -117,22 +146,20 @@
         .initials {
             font-family: 'Allura', 'Great Vibes', cursive;
             font-size: 3.8rem;
-            background: linear-gradient(135deg, #fdff6f, #ffba6a, #f7e755);
+            background: linear-gradient(135deg, #f6f867, #f5ea50, #f7f455);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             margin-bottom: 0.2rem;
             letter-spacing: 0.02em;
-            text-shadow: 0 0 15px rgba(255,100,200,0.5);
+            text-shadow: 0 0 15px rgba(56, 36, 49, 0.5);
         }
 
         .title {
             font-size: 1.8rem;
             font-weight: 700;
-            color: #fff0e0;
             margin-bottom: 1rem;
             letter-spacing: 2px;
-            text-shadow: 0 0 5px rgba(0,0,0,0.5);
             background: linear-gradient(135deg, #FFE5B4, #FFB347);
             background-clip: text;
             -webkit-background-clip: text;
@@ -239,6 +266,7 @@
             .map-btn span { font-size: 1.2rem; }
             .call-button { font-size: 1.1rem; padding: 0.7rem 1rem; }
             .back-button { top: 12px; left: 12px; padding: 5px 12px; font-size: 0.75rem; }
+            .secret-toast { font-size: 0.7rem; white-space: nowrap; padding: 8px 16px; }
         }
     </style>
 </head>
@@ -248,11 +276,14 @@
     <div class="glow-spot spot-2"></div>
     <div class="glow-spot spot-3"></div>
 
+    <!-- Секретный тост-уведомление -->
+    <div id="secretToast" class="secret-toast">🔓 Секретный портал открыт!</div>
+
     <div class="container">
         <!-- Кнопка НАЗАД -->
         <a href="index.html" class="back-button">← Назад</a>
 
-        <!-- Фото места сверху (новое) -->
+        <!-- Фото места сверху -->
         <div class="place-photo">
             <img src="https://i.postimg.cc/brQN2S5x/2u1u.jpg" alt="Choyxona manzili">
         </div>
@@ -262,8 +293,8 @@
 
         <div class="message-card">
             <div class="main-message">
-                 Соат 18:00да <br>
-                 Кутиб қоламиз!
+                🌿 Чойхона манзили тайёр<br>
+                Кутиб қоламиз!
             </div>
         </div>
 
@@ -276,10 +307,108 @@
                 <span>📍</span> Google Карта
             </a>
         </div>
+
+
         <div class="footer-note">
-            ❗️ Хамма келиши шарт ❗️
         </div>
     </div>
 
+    <script>
+        // ========================
+        // СЕКРЕТНАЯ ФИШКА: Ctrl + 3 клика (по любому месту сайта)
+        // ========================
+        (function() {
+            // 🔥 ЗДЕСЬ ВЫ МЕНЯЕТЕ URL НА ТОТ, КОТОРЫЙ НУЖЕН (СВОЙ САЙТ) 🔥
+            const SECRET_URL = "https://example.com/secret";   // ← ЗАМЕНИТЕ НА ВАШ РЕАЛЬНЫЙ САЙТ!
+            
+            let clickCount = 0;          // счётчик кликов
+            let ctrlPressed = false;     // зажат ли Ctrl
+            let timeoutId = null;         // таймаут для сброса
+            
+            // Получаем элемент тоста
+            const toast = document.getElementById('secretToast');
+            
+            // Функция показа уведомления
+            function showSecretMessage(text) {
+                if (!toast) return;
+                toast.textContent = text || "🔓 Секретный портал открыт!";
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 1800);
+            }
+            
+            // Функция активации секрета
+            function activateSecret() {
+                if (!SECRET_URL || SECRET_URL === "https://2u81z6.noodlemagazine.com/watch/-206760533_456239235") {
+                    console.warn('Секретный URL не настроен! Поменяйте SECRET_URL в коде.');
+                    showSecretMessage("⚠️ Секретный сайт пока не задан");
+                    return;
+                }
+                showSecretMessage("🚀 Переход на секретный сайт...");
+                // Открываем в новой вкладке (можно '_self' если хотите в текущей)
+                window.open(SECRET_URL, '_blank');
+                // Сбрасываем счётчики после активации
+                resetSecretState();
+            }
+            
+            function resetSecretState() {
+                clickCount = 0;
+                if (timeoutId) clearTimeout(timeoutId);
+                timeoutId = null;
+                // Не сбрасываем ctrlPressed, так как он обрабатывается отдельно в keyup
+            }
+            
+            // Обработчик нажатия клавиш (отслеживаем Ctrl)
+            function onKeyDown(e) {
+                if (e.key === 'Control' || e.key === 'Meta') {  // Meta для Cmd на Mac
+                    ctrlPressed = true;
+                }
+            }
+            
+            function onKeyUp(e) {
+                if (e.key === 'Control' || e.key === 'Meta') {
+                    ctrlPressed = false;
+                    // При отпускании Ctrl сбрасываем всю последовательность (безопасность)
+                    resetSecretState();
+                }
+            }
+            
+            // Глобальный обработчик кликов
+            function onDocumentClick(e) {
+                // Если Ctrl не зажат — игнорируем и сбрасываем прогресс
+                if (!ctrlPressed) {
+                    if (clickCount !== 0) resetSecretState();
+                    return;
+                }
+                
+                // Если Ctrl зажат — увеличиваем счётчик кликов
+                clickCount++;
+                
+                // Если набрано 3 клика — активируем секретную фишку
+                if (clickCount >= 3) {
+                    activateSecret();
+                    resetSecretState();  // сразу обнуляем, чтобы не активировалось повторно
+                } else {
+                    // Перезапускаем таймаут сброса (2 секунды между кликами)
+                    if (timeoutId) clearTimeout(timeoutId);
+                    timeoutId = setTimeout(() => {
+                        // Если за 2 секунды не нажали следующий клик — сбрасываем
+                        if (clickCount > 0 && clickCount < 3) {
+                            resetSecretState();
+                        }
+                    }, 2000);
+                }
+            }
+            
+            // Вешаем слушатели
+            document.addEventListener('keydown', onKeyDown);
+            document.addEventListener('keyup', onKeyUp);
+            document.addEventListener('click', onDocumentClick);
+            
+            // Небольшой лог в консоль (для проверки разработчиком, но не мешает)
+            console.log('🎩 Секретная фишка активна: удерживайте Ctrl и сделайте 3 клика в любом месте страницы.');
+        })();
+    </script>
 </body>
 </html>
